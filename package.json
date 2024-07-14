@@ -1,0 +1,69 @@
+{
+  "name": "vue-django",
+  "version": "0.10.3",
+  "description": "个人实验项目, 本框架的目标是借鉴并超越django admin的自动化思想, 实现UI前端的极简快速定制开发",
+  "main": "lib/vue-django.umd.min.js",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "npmjs": "npm publish --registry=https://registry.npmjs.org",
+    "lib": "vue-cli-service build --target lib --name xyz-element --dest lib packages/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szuprefix/vue-django.git"
+  },
+  "keywords": [
+    "vue",
+    "django",
+    "model",
+    "search",
+    "CRUT",
+    "tables"
+  ],
+  "author": "szuprefix@126.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/szuprefix/vue-django/issues"
+  },
+  "homepage": "https://github.com/szuprefix/vue-django#readme",
+  "dependencies": {
+    "axios": ">=0.21.1",
+    "date-fns": "^1.29.0",
+    "element-ui": "^2.7.2",
+    "js-cookie": "^2.2.0",
+    "lodash-es": "^4.17.21",
+    "lowdb": "^1.0.0",
+    "qs": "^6.4.0",
+    "vue": "^2.6.12",
+    "vue-router": "^3.0.2",
+    "vuex": "^3.0.1",
+    "vux": "^2.9.4"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "devDependencies": {
+    "script-loader": "0.7.2",
+    "autoprefixer": "^6.6.0",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.0",
+    "babel-preset-vue-app": "^1.2.0",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
+    "css-loader": "^0.27.0",
+    "file-loader": "^0.10.1",
+    "html-webpack-plugin": "^2.24.1",
+    "postcss-loader": "^1.3.3",
+    "rimraf": "^2.5.4",
+    "style-loader": "^0.13.2",
+    "url-loader": "^0.5.8",
+    "vue-loader": "^11.1.4",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^2.4.1",
+    "webpack-dev-server": ">=3.1.11",
+    "jsonlint": "^1.6.2"
+  }
+}
