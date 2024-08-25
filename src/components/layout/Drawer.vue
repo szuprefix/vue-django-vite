@@ -25,7 +25,7 @@
                 this.onDone = context.onDone
                 let c = context.component
                 if (typeof c === 'string') {
-                    _import('src/views/' + c + '.vue').then(module => {
+                    _import('/src/views/' + c + '.vue').then(module => {
                         this.drawer = {component: module.default, context: this.filterContext(context.context)}
                         this.size = context.context.size || '30%'
                         this.title = context.context.title || context.label

@@ -29,9 +29,19 @@ let router = new Router({
 })
 
 export function import_or_use_template(path, template) {
-    return () => {
-        return _import(`/src/views/${path}.vue`) || import(`../views/model/${template}.vue`)
+    let tmlPath = template.includes('/') ? template : `../views/model/${template}.vue`
+    let c = _import(`/src/views/${path}.vue`) || _import(tmlPath)
+    if(c){
+        return c
     }
+    return () => Promise.reject(`neither ${path} nor template ${template} found`)
+    //     .catch(e=> {
+    //             console.error(`errrrrrr ${template}`)
+    //         })
+    //     } else {
+    //         throw e
+    //     }
+    // })
 }
 
 export function setDefaultLayout(rs) {

@@ -104,7 +104,7 @@ export default function (appModel, defaults, eventor) {
                 if (!this.id) {
                     data = this.emptyDataFromOptions(restOptions.actions.POST)
                 }
-                this.data = Object.assign({}, this.data, data)
+                this.data = {...this.data, ...data}
                 return rs
             })
         },
@@ -200,7 +200,7 @@ export default function (appModel, defaults, eventor) {
         },
         loadViewsConfig () {
             if (this.viewsConfig) {
-                return Promise.resolve(this.viewConfig)
+                return Promise.resolve(this.viewsConfig)
             }
             let confPath=`/src/views${this.getListUrl()}config.js`
             const module = import.meta.glob("@/views/**/config.js")[confPath] || Promise.reject
@@ -210,7 +210,7 @@ export default function (appModel, defaults, eventor) {
                     let d = m.default || {}
                 return d
             }).catch((err) => {
-                console.warn(`找不到视图配置@/views${this.getListUrl()}config.js,将使用默认配置, err: ${err}`)
+                console.warn(`找不到视图配置${confPath},将使用默认配置, err: ${err}`)
                 return {}
             }).then(config => {
                 this.viewsConfig = config

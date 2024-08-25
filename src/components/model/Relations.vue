@@ -13,6 +13,7 @@
     import ModelTable from './Table.vue'
     import Qs from 'qs'
     import {forEach} from 'lodash'
+    import _import from '../../router/vite_import'
     export default{
         props: {
             parent: Object,
@@ -64,7 +65,7 @@
                 if (typeof v == 'string') {
                     let p = `${m.name.replace('.', '/')}/${m.view}`
                     this.loading = true
-                    return import('@/views/' + p + '.vue').then(module => {
+                    return _import('/src/views/' + p + '.vue')().then(module => {
                         let v = module.default
                         this.modelItems[i] = {...this.modelItems[i], view: v}
                         this.loading = false

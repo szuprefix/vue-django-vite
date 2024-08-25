@@ -96,7 +96,11 @@
 //                this.formValue = this.value
                 this.model.load().then((data, options) => {
                     this.mid = this.model.id
-                    this.formValue = {...this.value, ...this.model.data}
+                    if(!this.mid){
+                        this.formValue = {...this.model.data, ...this.value}
+                    } else {
+                        this.formValue = {...this.value, ...this.model.data}
+                    }
                     this.normalizeItems()
                     this.$emit('loaded', this.model)
                 }).catch(this.onServerResponseError)

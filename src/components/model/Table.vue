@@ -41,6 +41,7 @@
     import Search from './Search.vue'
     import ContentType from '../generic/ContentType'
     import _import from 'vue-django/src/router/vite_import'
+    import {import_or_use_template} from 'vue-django/src/router/index'
 
     export default{
         name: 'ModelTable',
@@ -188,9 +189,7 @@
             },
 
             toCreateModel(){
-                _import(`src/views${this.model.getListUrl()}form.vue`).catch(() => {
-                    return import('vue-django/src/components/model/Form.vue')
-                }).then(m => {
+                return import_or_use_template(`${this.model.getListUrl()}form`, 'create')().then(m => {
                     this.creator = m.default
                     this.editing = true
                 })
