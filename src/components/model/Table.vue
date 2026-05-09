@@ -16,7 +16,7 @@
             </slot>
         </el-drawer>
 
-        <remote-table :items="tableItems" :url="model.getListUrl()" ref="table" v-if="optionLoaded"
+        <remote-table :items="tableItems" :url="$attrs.url || model.getListUrl()" ref="table" v-if="optionLoaded"
                       @loaded="onLoaded" v-bind="rtAttrs" v-on="$listeners" @selection-change="onSelectionChange">
 
             <template slot="left" v-if="$slots.left">

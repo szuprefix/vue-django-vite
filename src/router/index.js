@@ -35,13 +35,6 @@ export function import_or_use_template(path, template) {
         return c
     }
     return () => Promise.reject(`neither ${path} nor template ${template} found`)
-    //     .catch(e=> {
-    //             console.error(`errrrrrr ${template}`)
-    //         })
-    //     } else {
-    //         throw e
-    //     }
-    // })
 }
 
 export function setDefaultLayout(rs) {
