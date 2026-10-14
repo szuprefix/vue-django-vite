@@ -79,6 +79,10 @@
         methods: {
 
             onModelPosted ({appModel, id}) {
+              if(!this.model){
+                return
+              }
+              // console.log('onModelPosted', {appModel, id}, this.appModel, this.model)
                 let dps = this.model.options.dependencies
                 if (appModel === this.appModel || dps && dps.includes(appModel)) {
                     this.load()
