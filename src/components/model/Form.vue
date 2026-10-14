@@ -148,7 +148,7 @@
             },
             submit()
             {
-                return this.model.save(this.formValue)
+                return this.model.save(this.formValue, this.$attrs.url)
             },
             onPosted(data)
             {
@@ -204,7 +204,7 @@
         },
         computed: {
             url () {
-                return this.mid ? this.model.getDetailUrl() : this.model.getListUrl()
+                return this.$attrs.url || (this.mid ? this.model.getDetailUrl() : this.model.getListUrl())
             },
             method () {
                 return this.mid ? "put" : "post"

@@ -108,13 +108,13 @@ export default function (appModel, defaults, eventor) {
                 return rs
             })
         },
-        save (data) {
+        save (data, url) {
             let d = Object.assign({}, this.defaults, this.data, data)
             let promise
             if (!this.id) {
-                promise = axios.post(this.getListUrl(), d)
+                promise = axios.post(url || this.getListUrl(), d)
             } else {
-                promise = axios.patch(this.getDetailUrl(), d)
+                promise = axios.patch(url || this.getDetailUrl(), d)
             }
             return promise.then(({data}) => {
                 this.id = data.id
