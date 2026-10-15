@@ -125,8 +125,15 @@
             },
             changed(value){
                 this.$emit('input', value)
+                this.emitContext(value)
+            },
+            emitContext(value){
+              try{
                 let ctx = {value, options: this.optionList, field: this.field, context: this.context, model: this.model}
                 this.$emit('context', ctx)
+              }catch (error) {
+                console.error(error)
+              }
             },
             onFilter(search){
                 this.search = search

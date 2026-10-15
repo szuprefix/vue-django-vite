@@ -210,7 +210,8 @@
                 return this.mid ? "put" : "post"
             },
             topActionItems () {
-                let tas = this.topActions || get(this.model.viewsConfig, 'form.topActions') || ['save', 'saveAndAnother', ['delete']]
+                let action = this.mid?'update':'create'
+                let tas = this.topActions || get(this.model.viewsConfig, `${action}.topActions`) || get(this.model.viewsConfig, 'form.topActions') || ['save', 'saveAndAnother', ['delete']]
                 return this.normalizeActions(tas)
             },
             disabled () {
